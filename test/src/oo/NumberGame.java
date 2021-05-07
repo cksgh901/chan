@@ -1,9 +1,6 @@
 package oo;
-
 import java.util.Scanner;
-
 public class NumberGame {
-
 	public static void main(String[] args)   {
 		int pick = (int) (Math.random()*100)+1;
 		boolean run = true;

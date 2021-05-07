@@ -20,8 +20,7 @@ System.out.println(bmi(height, weight));
 	}else if(bmi<18.5) {
 		System.out.println("저체중");
 	}
-	return bmi;
-
+	return bmi; 
 }
 }
 
