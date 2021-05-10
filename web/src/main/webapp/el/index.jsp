@@ -18,10 +18,12 @@ vo.setAge(30);
 vo.setEmail("go");
 session.setAttribute("loginInfo", vo);
 %>
-name : ${requestScope.name}<br>
+name : ${requestScope.name} , ${name} <br>
 id : ${sessionScope.id }<br>
 param(email) : ${param.email }<br>
-로그인정보(객체) : 이름 : ${sessionScope.loginInfo.name }, 나이:${sessionScope.loginInfo.age }<br>
+로그인정보(객체) : 이름 : ${sessionScope.loginInfo.name2 }, 나이:${sessionScope.loginInfo.age }<br>
+로그인정보(객체) : 이름 : ${loginInfo.name2 }, 나이:${loginInfo.age }<br>
+
  param(null) : <%=request.getParameter("grade") == null?" ": request.getParameter("grade")  %><br>
  param(null): ${param.grade }
 </body>

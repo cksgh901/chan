@@ -10,6 +10,9 @@ public class MemberVO {
 	public String getName() {
 		return name;
 	}
+	public String getName2() {
+		return name+"님";
+	}
 	public void setName(String name) {
 		this.name = name;
 	}
