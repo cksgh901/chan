@@ -3,11 +3,11 @@ package member;
 public class MemberVO 
 
 {
-   private String name;
-   private int age;
-   private String email;
+    String name;
+    int age;
+    String email;
    
-    public MemberVO()
+    public MemberVO(String name ,int age, String email )
     {
         this.name=name;
         this.age=age;

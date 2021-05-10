@@ -8,4 +8,3 @@ String name = "홍길동";
     session: <%=session.getAttribute("id") %><br>
 	request : <%=request.getAttribute("grade") %>
 	
-	id : <%=id%>
