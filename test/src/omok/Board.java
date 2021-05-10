@@ -1,4 +1,4 @@
-package oo;
+package omok;
 
 public class Board {
     int size;
@@ -8,7 +8,7 @@ public class Board {
         map = new String[size][size];
         for (int row = 0; row < size; row++) {
             for (int col = 0; col < size; col++) {
-                map[row][col] = " .";
+                map[row][col] = ".";
             }
         }
     }
@@ -16,7 +16,7 @@ public class Board {
     	
         for (int row = 0; row < size; row++) {
         	if(row<10) {
-        		System.out.print(row + " ");
+        		System.out.print(" "+row );
         	}else {
         		System.out.print(row);
         	}
@@ -31,7 +31,7 @@ public class Board {
         for(int i=0; i<a.length; i++)
         {
          a[i] = (char)('A'+i);
-        System.out.print("  ");
+        System.out.print(" ");
         System.out.print(a[i]);
         
       }

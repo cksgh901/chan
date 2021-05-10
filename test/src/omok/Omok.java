@@ -1,4 +1,4 @@
-package oo;
+package omok;
 
 import java.util.Scanner;
 
@@ -11,12 +11,12 @@ public class Omok {
         play(board, user, computer);
     }
     private static void play(Board board, Player user, Player computer) {
+    	board.print();
     	boolean run = true;
     	boolean turn = true;
     	Scanner sc = new Scanner(System.in);
     	int col = 0;
     	String row = null;
-    	board.print();
     	while(run) {
     		System.out.println();
     		if(turn) {
@@ -175,10 +175,6 @@ public class Omok {
     	return false;
     
     }
-    private void h(Board board) {
-    	
-		
-	}
     
     private static boolean adddol(int col , int rowint, Board board) {
     	if(board.map[col][rowint] != ".") {
