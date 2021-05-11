@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
   <%@page import="chapter20.*" %>
   <%@page import= "java.util.*" %>
-  
+  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,21 +13,15 @@
 <% 
 //1. StudentDAO 객체 생성 (db연결 ,statement생성)
 StudentDAO dao = new StudentDAO();
+//2. select() 호출
 List<StudentVo> list =dao.select();
 request.setAttribute("list", list);
-int count = 0;
-List<StudentVo> list2 = (List<StudentVo>)request.getAttribute("list");
-
+//3. 리턴값 (리스트) 출력
 %>
+<c:forEach var="vo"  items="${list }">
+	${vo.studno } ${vo.name } ${vo.id } ${vo.jumin }<br>
+</c:forEach>
 
-<%
-//2. select 메소드 불러오기
-for(int i =0; i<list.size();i++){count++;%>
-No.<%= count %>
-<%= dao.select().get(i).getStudno() %> 
-<%=dao.select().get(i).getName() %>
- <%=dao.select().get(i).getId() %>
- <%=dao.select().get(i).getJumin() %><br>
-<%} %>
+
 </body>
 </html>
