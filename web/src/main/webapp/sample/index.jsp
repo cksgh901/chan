@@ -7,12 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-${1+2 }<br>
-${"10"+2 }<br>
-${null+1 }<br>
-${10 == 10 }<br>
-${"10" eq 10}<br>
-
-
+${result }
+<form  action="/web/sample.do?type=2"  method="post"">
+<input type="submit" name="log" >b
+<a href="/web/sample.do?type=1">a</a>
+</form>
 </body>
 </html>

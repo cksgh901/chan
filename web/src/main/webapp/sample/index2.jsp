@@ -7,12 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-${1+2 }<br>
-${"10"+2 }<br>
-${null+1 }<br>
-${10 == 10 }<br>
-${"10" eq 10}<br>
-
-
+${result }
+여기는 인덱스2
 </body>
 </html>

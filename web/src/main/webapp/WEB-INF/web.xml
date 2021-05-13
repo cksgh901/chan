@@ -9,6 +9,7 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+<!-- 
   <error-page>
   	<error-code>404</error-code>
   	<location>/error/error.jsp</location>
@@ -17,4 +18,65 @@
   	<error-code>500</error-code>
   	<location>/error/error.jsp</location>
   </error-page>
+-->
+<!-- 
+		<servlet>
+			<servlet-name>DriverLoader</servlet-name>
+			<servlet-class>jdbc.DriverLoader</servlet-class>
+			<load-on-startup>1</load-on-startup>
+		</servlet>	
+		-->
+	<servlet>
+		<servlet-name>DBCPInit</servlet-name>
+		<servlet-class>jdbc.DBCPInit</servlet-class>
+		<init-param>
+			<param-name>jdbcDriver</param-name>
+			<param-value>org.mariadb.jdbc.Driver</param-value>
+		</init-param>
+		
+		<init-param>
+			<param-name>jdbcUrl</param-name>
+			<param-value>jdbc:mariadb://127.0.0.1:3306/javadb</param-value>
+		</init-param>
+		
+		<init-param>
+			<param-name>jdbcId</param-name>
+			<param-value>javadb</param-value>
+		</init-param>
+		
+		<init-param>
+			<param-name>jdbcPwdl</param-name>
+			<param-value>javadb1234</param-value>
+		</init-param>
+		
+		<init-param>
+			<param-name>poolname</param-name>
+			<param-value>jdbc:apache:commons:dbcp:</param-value>
+		</init-param>
+		
+		<load-on-startup>1</load-on-startup>
+	</servlet>	
+	<!-- 서블릿 등록-->
+	<servlet>
+		<servlet-name>sample</servlet-name>
+		<servlet-class>servlet.SampleServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>	
+	
+	<!-- 서블릿 매핑-->
+	<servlet-mapping>
+		<servlet-name>sample</servlet-name>
+		<url-pattern>/sample</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>SampleControoler</servlet-name>
+		<servlet-class>mvc.SampleControoler</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>	
+	
+	<servlet-mapping>
+		<servlet-name>SampleControoler</servlet-name>
+			<url-pattern>/sample.do</url-pattern>
+	</servlet-mapping>
 </web-app>

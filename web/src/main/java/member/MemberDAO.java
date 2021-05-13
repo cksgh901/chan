@@ -1,4 +1,4 @@
-package board;
+package member;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class BoardDAO {
+public class MemberDAO {
 
 	Connection conn;
 	Statement stmt;
@@ -17,7 +17,7 @@ public class BoardDAO {
 	PreparedStatement pstmt;
 	
 	//생성자 : db연결 , statement객체  생성
-	public BoardDAO() {
+	public MemberDAO() {
 
 		try {
 			conn = DriverManager.getConnection("jdbc:mariadb://127.0.0.1:3306/javadb", "javadb", "javadb1234");
@@ -31,24 +31,27 @@ public class BoardDAO {
 
 	}
 	//등록
-	public int insert(BoardVO vo) throws Exception {
-		String sql ="INSERT INTO board";
+	public int insert(MemberVO vo) throws Exception {
+		String sql ="INSERT INTO member";
 		sql += "(title,content,regdate)";
 		sql += "VALUES";
-		sql += "('"+vo.getTitle()+"','"+vo.getContent()+"',NOW())";
+		sql += "('"+vo.getId()+"','"+vo.getPwd()+"',NOW())";
 		int r = stmt.executeUpdate(sql); // 처리된 갯수 리턴
 		return r;
 	}
 	// PreparedStatment 사용
-	public int insert2(BoardVO vo) throws Exception {
-		String sql ="INSERT INTO board";
-		sql += "(title,content,regdate)";
+	public int insert2(MemberVO vo) throws Exception {
+		String sql ="INSERT INTO member";
+		sql += "(id,pwd,name,email)";
 		sql += "VALUES";
-		sql += "(?,?,NOW())";
+		sql += "(?,?,?,?,?)";
 		pstmt = conn.prepareStatement(sql); //sql 준비
 		//값 대입
-		pstmt.setString(1, vo.getTitle());
-		pstmt.setString(2, vo.getContent());
+		pstmt.setString(1, vo.getId());
+		pstmt.setInt(2, vo.getMemno());
+		pstmt.setString(3, vo.getPwd());
+		pstmt.setString(4, vo.getName());
+		pstmt.setString(5, vo.getEmail());
 		// 실행
 		
 		int r = pstmt.executeUpdate(); // 처리된 갯수 리턴
@@ -56,37 +59,38 @@ public class BoardDAO {
 	}
 	
 	//상세
-	public BoardVO selectOne(int boardno) throws Exception {
-		rs = stmt.executeQuery("SELECT * FROM board WHERE boardno ="+boardno);
-		BoardVO vo = null;
+	public MemberVO selectOne(String id,String pwd) throws Exception {
+		rs = stmt.executeQuery("SELECT * FROM member WHERE id ="+id "AND pwd="+pwd);
+		MemberVO vo = null;
 		if(rs.next()) {
-			vo = new BoardVO();
-			vo.setBoardno(rs.getInt("boardno"));
-			vo.setTitle(rs.getString("title"));
-			vo.setContent(rs.getString("content"));
-			vo.setRegdate(rs.getTimestamp("regdate"));
+			vo = new MemberVO();
+			vo.setId(rs.getString("id"));
+			vo.setMemno(rs.getInt("memno"));
+			vo.setPwd(rs.getString("pwd"));
+			vo.setName(rs.getString("name"));
+			vo.setEmail(rs.getString("email"));
 		}
 		return vo;
 	}
 	
 	//목록
-	public List<BoardVO> select() throws Exception{
-		rs = stmt.executeQuery("SELECT * FROM board ORDER BY regdate DESC");
-		List<BoardVO>list = new ArrayList<BoardVO>();
-		BoardVO vo = null;
+	public List<MemberVO> select() throws Exception{
+		rs = stmt.executeQuery("SELECT * FROM member ");
+		List<MemberVO>list = new ArrayList<MemberVO>();
+		MemberVO vo = null;
 		while(rs.next()) {
-			vo = new BoardVO();
-			vo.setBoardno(rs.getInt("boardno"));
-			vo.setTitle(rs.getString("title"));
-			vo.setContent(rs.getString("content"));
-			vo.setRegdate(rs.getTimestamp("regdate"));
+			vo = new MemberVO();
+			vo.setId(rs.getString("id"));
+			vo.setPwd(rs.getString("pwd"));
+			vo.setName(rs.getString("name"));
+			vo.setEmail(rs.getString("email"));
 			list.add(vo);
 		}
 		return list;
 	}
 	
 	//수정
-	public int update(BoardVO vo) throws Exception{
+	public int update(MemberVO vo) throws Exception{
 		return stmt.executeUpdate("UPDATE board SET title='"+vo.getTitle()+"',"+"content='"+vo.getContent()+"'"+"WHERE boardno="+vo.getBoardno());
 	}
 	//삭제
