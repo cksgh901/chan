@@ -7,10 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="/web/session/login.jsp" method="post">
-아이디 : <input type="text" name="id"><br>
-비밀번호 : <input type="password"name="pwd"><br>
-<input type="submit" value="로그인">
-</form>
+여기는 boardDetail.jsp<br>
+${name }
 </body>
 </html>

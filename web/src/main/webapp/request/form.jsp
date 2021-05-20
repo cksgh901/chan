@@ -24,7 +24,7 @@ function cheak() {
 </script>
 </head>
 <body>
-<form action="server.jsp" method="get" > 
+<form action="server.jsp" method="post" > 
 <input type="text" name="name" value="<%=name%>"readonly><br>
 <input type="text" name="name2" value="<%=name%>"disabled><br>
 <input type="password" name="password" id="pwb"><br>
