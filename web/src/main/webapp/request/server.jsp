@@ -8,6 +8,10 @@
 </head>
 <body>
 <%
+<<<<<<< HEAD
+=======
+
+>>>>>>> refs/remotes/origin/master
 // name 이름의 파라미터명으로 값을 받아
 String name = request.getParameter("name");
 

@@ -65,6 +65,7 @@ public class Omok {
         }else {
         	System.out.println(computer.name+"승");
         }
+<<<<<<< HEAD
 
         
     	
@@ -180,6 +181,122 @@ public class Omok {
     	return false;
     
     }
+=======
+    }
+    }     
+
+    }
+    private static  boolean rowcheak1(Board board) {
+    	int  win = 0 ;
+    	for(int i = 0 ; i<board.map.length; i++) {
+    		for (int j = 0; j<board.map[i].length; j++){
+    			try {
+    				for(int k = 0 ; k<6; k++) {
+    					if(board.map[i][j+k].equals("O")) {
+    						win += 1;
+    					    					}
+    				}
+    			
+    			}catch (Exception e) {
+    			break;
+    			}
+    		finally {
+				if(win >= 5) {
+					return true;
+				}else {
+					win = 0;
+				}
+			}
+    	}
+    	}
+    
+		return false;
+    }
+    private static  boolean colcheak2(Board board) {
+    	int  win = 0 ;
+    	for(int i = 0 ; i<board.map.length; i++) {
+    		for (int j = 0; j<board.map[i].length; j++){
+    			try {
+    				for(int k = 0 ; k<6; k++) {
+    					if(board.map[j+k][i].equals("O")) {
+    						win += 1;
+    					
+    					}
+    				}
+    			
+    			}catch (Exception e) {
+    			break;
+    			}
+    		finally {
+				if(win >= 5) {
+					return true;
+				}else {
+					win = 0;
+				}
+			}
+    	}
+    	}
+    	return false;
+    
+    }
+    private static  boolean rowcheak(Board board) {
+    	int  win = 0 ;
+    	for(int i = 0 ; i<board.map.length; i++) {
+    		for (int j = 0; j<board.map[i].length; j++){
+    			try {
+    				for(int k = 0 ; k<6; k++) {
+    					if(board.map[i][j+k].equals("X")) {
+    						win += 1;
+    					    					}
+    				}
+    			
+    			}catch (Exception e) {
+    			break;
+    			}
+    		finally {
+				if(win >= 5) {
+					return true;
+				}else {
+					win = 0;
+				}
+			}
+    	}
+    	}
+    
+		return false;
+    }
+    private static  boolean colcheak(Board board) {
+    	int  win = 0 ;
+    	for(int i = 0 ; i<board.map.length; i++) {
+    		for (int j = 0; j<board.map[i].length; j++){
+    			try {
+    				for(int k = 0 ; k<6; k++) {
+    					if(board.map[j+k][i].equals("X")) {
+    						win += 1;
+    					
+    					}
+    				}
+    			
+    			}catch (Exception e) {
+    			break;
+    			}
+    		finally {
+				if(win >= 5) {
+					return true;
+				}else {
+					win = 0;
+				}
+			}
+    	}
+    	}
+    	return false;
+    
+    }
+    private void h(Board board) {
+    	
+		
+	}
+>>>>>>> refs/remotes/origin/master
     
     private static boolean adddol(int col , int rowint, Board board) {
     	if(board.map[col][rowint] != ".") {

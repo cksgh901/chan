@@ -12,7 +12,10 @@ ${"10"+2 }<br>
 ${null+1 }<br>
 ${10 == 10 }<br>
 ${"10" eq 10}<br>
+<<<<<<< HEAD
 ${2>1 and 2= 2 }<br>
+=======
+>>>>>>> refs/remotes/origin/master
 
 
 </body>

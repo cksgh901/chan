@@ -17,10 +17,17 @@ public class NumberGame {
 				a--;
 				continue;
 			}
+<<<<<<< HEAD
 			if(selectNo>pick) {
 				System.out.println("입력하신 숫자는 적습니다.");
 			}
 			else if (selectNo<pick) {
+=======
+			if(selectNo<pick) {
+				System.out.println("입력하신 숫자는 적습니다.");
+			}
+			else if (selectNo>pick) {
+>>>>>>> refs/remotes/origin/master
 				System.out.println("입력하신 숫자는 큽니다.");
 			}
 			else if(selectNo == pick) {
